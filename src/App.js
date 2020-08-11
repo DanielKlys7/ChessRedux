@@ -7,6 +7,11 @@ import MainMenu from "./home/index";
 firebase.initializeApp({
   apiKey: "AIzaSyCP-MhQokNvLnX8pjQR7noEwDxzteUtiPA",
   authDomain: "chess-d8f42.firebaseapp.com",
+  databaseURL: "https://chess-d8f42.firebaseio.com",
+  projectId: "chess-d8f42",
+  storageBucket: "chess-d8f42.appspot.com",
+  messagingSenderId: "492091758201",
+  appId: "1:492091758201:web:c026cc1366de85aecd66a8",
 });
 
 class App extends Component {
