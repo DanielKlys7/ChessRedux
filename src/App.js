@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import firebase from "firebase";
+import { Provider } from "react-redux";
+import Store from "./store/Store.js";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import MainMenu from "./home/index";
+import MainMenu from "./home/index.jsx";
 
 firebase.initializeApp({
   apiKey: "AIzaSyCP-MhQokNvLnX8pjQR7noEwDxzteUtiPA",
@@ -43,7 +45,9 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.isSignedIn ? (
-          <MainMenu />
+          <Provider store={Store}>
+            <MainMenu />
+          </Provider>
         ) : (
           <StyledFirebaseAuth
             uiConfig={this.uiConfig}
