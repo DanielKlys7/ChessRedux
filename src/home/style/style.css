@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box !important;
+  font-size: 16px;
+}
+
+body {
+  background-image: url(../png/bg.png);
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+p {
+  padding: 5px;
+  margin: 0 !important;
+}
+
+/*Bootstrap*/
+.row {
+  margin: 3vh 20px 0 !important;
+}
+
+.container-fluid {
+  background-color: #222;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+/*Nav*/
+#logo {
+  margin-left: 50px;
+}
+
+.navbar.navbar-expand-md.navbar-dark.bg-dark {
+  height: 7vh;
+  font-size: 1rem !important;
+}
+
+.navbar-brand {
+  font-size: 1.4rem !important;
+  margin-left: 20px;
+}
+
+.btn-chess,
+.btn-chess:focus {
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  background-color: #fff0;
+  color: white;
+  outline: none;
+}
+
+/*Main*/
+#RightPanel {
+  max-width: 450px;
+  display: block;
+  margin-left: 20px;
+  color: #fff;
+}
+
+#puzzleNumber {
+  background-color: #343a40;
+  color: white;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.puzzle-select {
+  font-size: 1.2rem;
+  margin: 0 20px 0;
+}
+
+#dropdown,
+#dropdown:focus {
+  background-color: #fff0;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.select-option {
+  background-color: #343a40;
+  border: none;
+}

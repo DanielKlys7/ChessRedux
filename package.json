@@ -6,9 +6,17 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "chart.js": "^2.9.3",
+    "chessboardjsx": "^2.4.2",
+    "firebase": "^7.17.2",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
+    "react-chartjs-2": "^2.10.0",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-firebaseui": "^4.1.0",
+    "react-scripts": "3.4.1",
+    "react-table": "^7.5.0",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
