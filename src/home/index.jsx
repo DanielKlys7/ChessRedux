@@ -52,9 +52,6 @@ function MainMenu() {
           </span>
           <ScoreBox></ScoreBox>
           <MovesBox></MovesBox>
-          <div className="container-fluid">
-            <button className="btn-chess"> Submit</button>
-          </div>
         </div>
       </div>
     </>

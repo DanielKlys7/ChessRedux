@@ -28,12 +28,6 @@ p {
   margin: 3vh 20px 0 !important;
 }
 
-.container-fluid {
-  background-color: #222;
-  margin-bottom: 20px;
-  padding: 5px;
-}
-
 /*Nav*/
 #logo {
   margin-left: 50px;
@@ -60,7 +54,7 @@ p {
   outline: none;
 }
 
-/*Main*/
+/*Right Panel*/
 #RightPanel {
   max-width: 450px;
   display: block;
@@ -68,6 +62,17 @@ p {
   color: #fff;
 }
 
+.container-fluid {
+  background-color: #222;
+  margin-bottom: 20px;
+  padding: 10px 5px;
+}
+
+.label-margin {
+  margin-right: 10px;
+}
+
+/*Main*/
 #puzzleNumber {
   background-color: #343a40;
   color: white;
