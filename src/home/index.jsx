@@ -12,6 +12,7 @@ import SelectFEN from "./Select";
 
 function MainMenu() {
   const [chesspuzzleFEN, setChesspuzzleFEN] = useState([]);
+  const [selectOption, setSelectOption] = useState("start");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,18 +29,15 @@ function MainMenu() {
   let windowHeight = 0.8 * size.height;
   let rightPanelWidth = size.width - windowHeight - 60;
 
-  const [selectOption, setSelectOption] = useState("start");
-
   return (
     <>
       <Navbar />
       <div className="row">
         <div id="board" style={{ width: windowHeight }}>
-          {/* do poprawy */}
           <SelectFEN
             chesspuzzleFEN={chesspuzzleFEN}
             Fen={selectOption}
-            onFenChange={(e) => setSelectOption(e.target.value)}
+            onFenChange={setSelectOption}
           />
 
           <Chessboard

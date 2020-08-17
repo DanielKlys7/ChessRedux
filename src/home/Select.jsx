@@ -1,46 +1,37 @@
 import React from "react";
 
-class Select extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
+const Select = ({ chesspuzzleFEN, Fen, onFenChange }) => {
+  function handleChange(e) {
+    onFenChange(e.target.value, Fen);
   }
 
-  handleChange(e) {
-    this.props.onFenChange(e.target.value);
-  }
-  render() {
-    const Fen = this.props.Fen;
-    const inputFen = this.props.chesspuzzleFEN;
-
-    return (
-      <div id="puzzleNumber">
-        <label htmlFor="puzzle-select" className="puzzle-select">
-          Choose a puzzle
-        </label>
-        {/*do poprawy*/}
-        <select
-          value={Fen}
-          onChange={this.handleChange}
-          feen={inputFen.Fen}
-          className="puzzle-select"
-          id="dropdown"
-        >
-          <option className="select-option" value="start" key="start">
-            Choose a number
+  return (
+    <div id="puzzleNumber">
+      <label htmlFor="puzzle-select" className="puzzle-select">
+        Choose a puzzle
+      </label>
+      <select
+        value={chesspuzzleFEN.Fen}
+        onChange={handleChange}
+        className="puzzle-select"
+        id="dropdown"
+      >
+        <option className="select-option" value="start" key="start">
+          Start
+        </option>
+        {chesspuzzleFEN.map((chesspuzzleFEN) => (
+          <option
+            className="select-option"
+            value={chesspuzzleFEN.Fen}
+            key={chesspuzzleFEN.id}
+            onChange={handleChange}
+          >
+            {chesspuzzleFEN.id}
           </option>
-          {inputFen.map((inputFen) => (
-            <option
-              className="select-option"
-              value={inputFen.Fen}
-              key={inputFen.id}
-            >
-              {inputFen.id}
-            </option>
-          ))}
-        </select>
-      </div>
-    );
-  }
-}
+        ))}
+      </select>
+    </div>
+  );
+};
+
 export default Select;
