@@ -14,6 +14,8 @@ function MainMenu() {
   const [chesspuzzleFEN, setChesspuzzleFEN] = useState([]);
   const [selectOption, setSelectOption] = useState("start");
 
+  const userID = firebase.auth().currentUser;
+
   useEffect(() => {
     const fetchData = async () => {
       const db = firebase.firestore();
@@ -21,6 +23,16 @@ function MainMenu() {
       setChesspuzzleFEN(
         data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
+    };
+    fetchData();
+  }, []);
+
+  const [point, setPoint] = useState({});
+  useEffect(() => {
+    const fetchData = async () => {
+      const db = firebase.firestore();
+      const data = await db.collection("User").get();
+      setPoint(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     fetchData();
   }, []);
@@ -48,15 +60,16 @@ function MainMenu() {
         </div>
         <div id="RightPanel" style={{ width: rightPanelWidth }}>
           <span>
-            <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+            <h1>Welcome {userID.displayName}</h1>
           </span>
-          <ScoreBox></ScoreBox>
-          <MovesBox></MovesBox>
+          {point.length > 0 && userID.uid.length > 0 && (
+            <ScoreBox point={point} userID={userID.uid} />
+          )}
+
+          <MovesBox />
         </div>
       </div>
     </>
   );
 }
 export default MainMenu;
-
-//(e) => setSelectOption(e.target.value)

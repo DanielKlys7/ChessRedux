@@ -1,10 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import firebase from "firebase";
 
 export default function MovesBox() {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
+  /* const onSubmit = (data) => {
     console.log(data);
+  }; */
+
+  /* const [answer, setAnswer] = React.useState(); */
+
+  const onSubmit = (data) => {
+    const db = firebase.firestore();
+    db.collection("answer")
+      .doc(data.id)
+      .set({ ...data });
   };
 
   return (
