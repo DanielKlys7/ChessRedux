@@ -48,11 +48,11 @@ function MainMenu() {
         <div id="board" style={{ width: windowHeight }}>
           <SelectFEN
             chesspuzzleFEN={chesspuzzleFEN}
-            Fen={selectOption}
+            selectOption={selectOption}
             onFenChange={setSelectOption}
           />
-
           <Chessboard
+            //cos nie dziala z ruszaniem
             position={selectOption}
             width={windowHeight}
             dropSquareStyle={{ boxShadow: "inset 0 0 6px 6px #333" }}
@@ -65,11 +65,20 @@ function MainMenu() {
           {point.length > 0 && userID.uid.length > 0 && (
             <ScoreBox point={point} userID={userID.uid} />
           )}
-
-          <MovesBox />
+          <MovesBox userID={userID.uid} />
         </div>
       </div>
     </>
   );
 }
 export default MainMenu;
+
+/* 
+.then(function fenIndex() {
+            for (let i = 0; i < chesspuzzleFEN.length; i++) {
+              if (chesspuzzleFEN[i].id === selectOption) {
+                console.log(i);
+              }
+            }
+          })
+*/

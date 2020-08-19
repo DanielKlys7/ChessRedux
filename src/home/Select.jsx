@@ -1,8 +1,8 @@
 import React from "react";
 
-const Select = ({ chesspuzzleFEN, Fen, onFenChange }) => {
+const SelectFEN = ({ chesspuzzleFEN, selectOption, onFenChange }) => {
   function handleChange(e) {
-    onFenChange(e.target.value, Fen);
+    onFenChange(e.target.value, selectOption);
   }
 
   return (
@@ -10,12 +10,7 @@ const Select = ({ chesspuzzleFEN, Fen, onFenChange }) => {
       <label htmlFor="puzzle-select" className="puzzle-select">
         Choose a puzzle
       </label>
-      <select
-        value={chesspuzzleFEN.Fen}
-        onChange={handleChange}
-        className="puzzle-select"
-        id="dropdown"
-      >
+      <select onChange={handleChange} className="puzzle-select" id="dropdown">
         <option className="select-option" value="start" key="start">
           Start
         </option>
@@ -24,7 +19,6 @@ const Select = ({ chesspuzzleFEN, Fen, onFenChange }) => {
             className="select-option"
             value={chesspuzzleFEN.Fen}
             key={chesspuzzleFEN.id}
-            onChange={handleChange}
           >
             {chesspuzzleFEN.id}
           </option>
@@ -34,4 +28,4 @@ const Select = ({ chesspuzzleFEN, Fen, onFenChange }) => {
   );
 };
 
-export default Select;
+export default SelectFEN;
