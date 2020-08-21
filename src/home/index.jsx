@@ -12,6 +12,7 @@ import SelectFEN from "./Select";
 
 function MainMenu() {
   const [chesspuzzleFEN, setChesspuzzleFEN] = useState([]);
+  const [moves, setMoves] = useState([]);
   const [selectOption, setSelectOption] = useState(1);
 
   const userID = firebase.auth().currentUser;
@@ -54,9 +55,17 @@ function MainMenu() {
           {chesspuzzleFEN.length > 0 && (
             <Chessboard
               //cos nie dziala z ruszaniem
-              position={chesspuzzleFEN[selectOption - 1].Fen}
+              position={
+                !moves.length
+                  ? chesspuzzleFEN[selectOption - 1].Fen
+                  : moves[moves.length - 1]
+              }
               width={windowHeight}
               dropSquareStyle={{ boxShadow: "inset 0 0 6px 6px #333" }}
+              getPosition={(position) => {
+                setMoves([...moves, position]);
+                console.log(position);
+              }}
             />
           )}
         </div>
