@@ -11,13 +11,10 @@ const SelectFEN = ({ chesspuzzleFEN, selectOption, onFenChange }) => {
         Choose a puzzle
       </label>
       <select onChange={handleChange} className="puzzle-select" id="dropdown">
-        <option className="select-option" value="start" key="start">
-          Start
-        </option>
         {chesspuzzleFEN.map((chesspuzzleFEN) => (
           <option
             className="select-option"
-            value={chesspuzzleFEN.Fen}
+            value={chesspuzzleFEN.nr}
             key={chesspuzzleFEN.id}
           >
             {chesspuzzleFEN.id}

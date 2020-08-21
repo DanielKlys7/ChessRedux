@@ -12,7 +12,7 @@ import SelectFEN from "./Select";
 
 function MainMenu() {
   const [chesspuzzleFEN, setChesspuzzleFEN] = useState([]);
-  const [selectOption, setSelectOption] = useState("start");
+  const [selectOption, setSelectOption] = useState(1);
 
   const userID = firebase.auth().currentUser;
 
@@ -51,12 +51,14 @@ function MainMenu() {
             selectOption={selectOption}
             onFenChange={setSelectOption}
           />
-          <Chessboard
-            //cos nie dziala z ruszaniem
-            position={selectOption}
-            width={windowHeight}
-            dropSquareStyle={{ boxShadow: "inset 0 0 6px 6px #333" }}
-          />
+          {chesspuzzleFEN.length > 0 && (
+            <Chessboard
+              //cos nie dziala z ruszaniem
+              position={chesspuzzleFEN[selectOption - 1].Fen}
+              width={windowHeight}
+              dropSquareStyle={{ boxShadow: "inset 0 0 6px 6px #333" }}
+            />
+          )}
         </div>
         <div id="RightPanel" style={{ width: rightPanelWidth }}>
           <span>
@@ -65,20 +67,15 @@ function MainMenu() {
           {point.length > 0 && userID.uid.length > 0 && (
             <ScoreBox point={point} userID={userID.uid} />
           )}
-          <MovesBox userID={userID.uid} />
+          {chesspuzzleFEN.length > 0 && (
+            <MovesBox
+              userID={userID.uid}
+              taskID={chesspuzzleFEN[selectOption - 1].id}
+            />
+          )}
         </div>
       </div>
     </>
   );
 }
 export default MainMenu;
-
-/* 
-.then(function fenIndex() {
-            for (let i = 0; i < chesspuzzleFEN.length; i++) {
-              if (chesspuzzleFEN[i].id === selectOption) {
-                console.log(i);
-              }
-            }
-          })
-*/

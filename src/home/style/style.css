@@ -77,14 +77,6 @@ p {
   margin-right: 10px;
 }
 
-.path:first-child {
-  margin-left: 23px;
-}
-
-#btn-save {
-  margin: 0 19px 0 29px;
-}
-
 /*Main*/
 #puzzleNumber {
   background-color: #343a40;
